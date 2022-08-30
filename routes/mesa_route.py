@@ -1,9 +1,8 @@
-from unittest import result
 from flask import jsonify, request, Blueprint
 from controllers.mesa_controller import MesaController
 
 #lo establecemos como app de blue print (coleccion de rutas)
-mesa_Module = Blueprint('students',__name__)
+mesa_Module = Blueprint('mesa',__name__)
 
 #establecemos el controlador
 controller = MesaController()
@@ -24,7 +23,7 @@ def ver_mesa(id):
 
 
 @mesa_Module.put('/<string:id>')#actualizar
-def act_mesa(id):
+def upd_mesa(id):
     controller.update(id, request.get_json())
     return jsonify({}), 204
 

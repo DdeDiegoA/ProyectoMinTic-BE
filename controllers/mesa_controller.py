@@ -6,22 +6,21 @@ class MesaController():
     def __init__(self):
         self.repo = MesaRepository()
     
-    def get(self):
-        return self.repo.get_all()
-    
+    def get(self): 
+            return self.repo.get_all()
+
     def getById(self,id):
         return self.repo.get_by_id(id)
     
-    # def create(data):
-    #     mesa.append(
-    #         MesaModel(data)
-    #     )
-    #     return mesa[data.id]
-    # def update(id, data):
-    #     mesa= mesa[id]
-    #     for key,value in data.items():
-    #         mesa[key] = value
+    def create(self,data):
+        mesa = MesaModel(data) #creamos Mesa
+        return {
+            "id":self.repo.save(mesa) #llamamos al repo en el metodo Save
+        }
+    def update(self, id,  data):
+        mesa = MesaModel(data) #cremos mesa
+        self.repo.update(id, mesa)#llamamos update y pasamos los valores
     
-    # def delete(id):
-    #     del mesa[id]
+    def delete(self,id):
+        return self.repo.delete(id) #llamamos Delete y pasamos ID
         

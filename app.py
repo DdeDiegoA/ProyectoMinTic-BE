@@ -1,7 +1,6 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from dotenv import dotenv_values
-from db.repository import Repository #importamos repositorio
 from routes.mesa_route import mesa_Module
 
 config = dotenv_values('.env') #instanciamos las variables de entonro
