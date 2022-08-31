@@ -11,3 +11,4 @@ class Db:
 
     def collection(self, name):
         return self.db.get_collection(name)
+    
