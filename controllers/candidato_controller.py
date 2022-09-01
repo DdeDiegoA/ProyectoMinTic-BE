@@ -10,7 +10,7 @@ class CandidatoController():
         self.repo = CandidatoRepository()
         self.repo_partido = PartidoRepository()
     
-    def get(self): 
+    def get(self, args): 
             return self.repo.get_all()
 
     def getById(self,id):
@@ -31,6 +31,7 @@ class CandidatoController():
         return {
             "id":self.repo.save(candidato) #llamamos al repo en el metodo Save
         }
+        
     def update(self, id,  data):
         candidato = CandidatoModel(data) #cremos mesa
         self.repo.update(id, candidato)#llamamos update y pasamos los valores

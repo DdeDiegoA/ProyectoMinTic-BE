@@ -9,7 +9,7 @@ controller = CandidatoController()
 
 @candidato_Module.get('/') #aca tenemos el listar
 def get_candidatos():
-    return jsonify(controller.get())
+    return jsonify(controller.get(request.args)), 200
 
 '''
 @candidato_Module.post('/') #Crear
@@ -19,8 +19,7 @@ def createCandidato():
 '''
 @candidato_Module.post('/partido/<string:partido_id>/') #Crear
 def createCandidato(partido_id):
-    result = controller.create(request.get_json(), partido_id)
-    return jsonify(result), 201
+    return jsonify(controller.create(request.get_json(), partido_id)), 201
 
 
 @candidato_Module.get('/<string:id>') #listar por ID
