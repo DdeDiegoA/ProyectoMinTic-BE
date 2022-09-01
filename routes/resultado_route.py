@@ -11,10 +11,11 @@ controller = ResultadoController()
 def get_resultado():
     return jsonify(controller.get())
 
-@resultado_Module.post('/') #Crear
-def createResultado():
-    result = controller.create(request.get_json())
+@resultado_Module.post('/mesa/<string:mesa_id>/candidato/<string:candidato_id>') #Crear
+def createResultado(mesa_id,candidato_id):
+    result = controller.create(request.get_json(), mesa_id,candidato_id)
     return jsonify(result), 201
+
 
 @resultado_Module.get('/<string:id>') #listar por ID
 def ver_resultado(id):
