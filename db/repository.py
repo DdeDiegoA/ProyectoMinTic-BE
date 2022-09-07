@@ -1,7 +1,8 @@
 from ast import Delete
 from typing import TypeVar, Generic,List,get_origin, get_args
 from bson.objectid import ObjectId
-from bson.dbref import DBRef
+#from bson.dbref import DBRef
+from bson import DBRef  # esto fue lo que puse nuevo
 from db.db import Db
 T=TypeVar('T')
 
@@ -35,6 +36,7 @@ class Repository(Generic[T]): #Generic
     #Guardar
     def save(self, item: T): #recibe un item del mismo tipo indicado en el generico (T)
         item = self.transform_refs(item) #si posee relacion compuesta la transformamos
+        id = "" #esto lo puse de nuevo 
         if hasattr(item, '_id') and item._id != "": #si pasa un ID lo actualizamos, sí no lo creamos.
             id= ObjectId(item._id)#la transformamos en ObjID
             # delattr('_id', item.__dict__) #removemos el OBjID para no actualizarlo

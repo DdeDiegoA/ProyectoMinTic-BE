@@ -7,6 +7,7 @@ candidato_Module = Blueprint('candidato',__name__)
 #establecemos el controlador
 controller = CandidatoController()
 
+## le puse el request.args
 @candidato_Module.get('/') #aca tenemos el listar
 def get_candidatos():
     return jsonify(controller.get())
