@@ -6,7 +6,9 @@ class MesaController():
     def __init__(self):
         self.repo = MesaRepository()
     
-    def get(self): 
+    #def get(self): 
+    #CAMBIE ESTO
+    def get(self,args): 
         return self.repo.get_all()
 
     def getById(self,id):

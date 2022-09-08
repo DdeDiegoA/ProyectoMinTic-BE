@@ -13,7 +13,9 @@ class ResultadoController():
         self.repo_mesa = MesaRepository()
         self.repo_candidato = CandidatoRepository()
     
-    def get(self): 
+    #def get(self): 
+    #PUSE ESTO DE NUEVO
+    def get(self,args):
             return self.repo.get_all()
 
     def getById(self,id):
@@ -36,3 +38,23 @@ class ResultadoController():
     
     def delete(self,id):
         return self.repo.delete(id) #llamamos Delete y pasamos ID
+
+    #PUSE ESTO DE NUEVOOOOO
+    def get_total(self):
+        #return self.repo.get_candidatos(args['id_partido'],args['numero_mesa'], args['candidato_id'])
+        return self.repo.get_total()
+
+    def total_candidato(self, candidato_id):
+        return self.repo.total_candidato(candidato_id)
+
+    def get_total_mesa(self):
+        return self.repo.get_total_mesa()
+
+    def get_total_partido(self):
+        return self.repo.get_total_partido()
+
+
+    
+    
+
+    

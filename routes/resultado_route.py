@@ -9,7 +9,9 @@ controller = ResultadoController()
 
 @resultado_Module.get('/') #aca tenemos el listar
 def get_resultado():
-    return jsonify(controller.get())
+    #return jsonify(controller.get())
+    #PUSE ESTO NUEVO
+    return jsonify(controller.get(request.args))
 
 @resultado_Module.post('/mesa/<string:mesa_id>/candidato/<string:candidato_id>') #Crear
 def createResultado(mesa_id,candidato_id):
@@ -32,3 +34,29 @@ def upd_resultado(id):
 def del_resultado(id):
     controller.delete(id)
     return jsonify({}), 204
+
+#total de votos para todos los candidatos
+@resultado_Module.get('/total')
+def get_total():
+    return jsonify(controller.get_total())
+
+#total de votos para un candidato
+@resultado_Module.get('/total-candidato/<string:candidato_id>')
+def total_candidato(candidato_id):
+    return jsonify(controller.total_candidato(candidato_id))
+
+#total de votos para cada candidato por mesa
+@resultado_Module.get('/totalMesa')
+def get_total_mesa():
+    return jsonify(controller.get_total_mesa())
+
+@resultado_Module.get('/totalPartido')
+def get_total_partido():
+    return jsonify(controller.get_total_partido())
+
+
+
+
+
+
+    
