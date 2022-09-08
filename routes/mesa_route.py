@@ -9,7 +9,9 @@ controller = MesaController()
 
 @mesa_Module.get('/') #aca tenemos el listar
 def get_mesas():
-    return jsonify(controller.get())
+    #return jsonify(controller.get())
+    #MODIFIQUE ESTO 
+    return jsonify(controller.get(request.args))
 
 @mesa_Module.post('/') #Crear
 def createMesas():

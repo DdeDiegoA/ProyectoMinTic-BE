@@ -6,7 +6,9 @@ class PartidoController():
     def __init__(self):
         self.repo = PartidoRepository()
     
-    def get(self): 
+    #def get(self): 
+    #PUSE ESTO DE NUEVO
+    def get(self, args):
             return self.repo.get_all()
 
     def getById(self,id):
