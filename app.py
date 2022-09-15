@@ -7,6 +7,7 @@ from routes.resultado_route import resultado_Module
 from routes.partido_route import partido_Module
 
 
+
 config = dotenv_values('.env') #instanciamos las variables de entonro
 app = Flask(__name__)
 cors = CORS(app)
