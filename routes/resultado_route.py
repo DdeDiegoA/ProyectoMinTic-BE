@@ -41,7 +41,7 @@ def get_total():
     return jsonify(controller.get_total())
 
 #total de votos para un candidato
-@resultado_Module.get('/total-candidato/<string:candidato_id>')
+@resultado_Module.get('/totalCandidato/<string:candidato_id>')
 def total_candidato(candidato_id):
     return jsonify(controller.total_candidato(candidato_id))
 
