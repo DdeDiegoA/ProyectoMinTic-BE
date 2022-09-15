@@ -9,7 +9,7 @@ controller = PartidoController()
 
 @partido_Module.get('/') #aca tenemos el listar
 def get_partidos():
-    return jsonify(controller.get())
+    return jsonify(controller.get()),200
 
 @partido_Module.post('/') #Crear
 def createPartido():
